@@ -418,8 +418,8 @@ class PasturesIntegration(commands.Cog):
     @app_commands.guild_only()
     @app_commands.autocomplete(server_name=server_autocomplete)
     @app_commands.describe(server_name="The name of the server you want to ping")
-    @app_commands.command(name="ping", description="Ping the server and check for command execution times!")
-    async def ping(self, interaction: discord.Interaction, server_name: str):
+    @app_commands.command(name="mping", description="Ping the server and check for command execution times!")
+    async def mping(self, interaction: discord.Interaction, server_name: str):
         """Ping the server and check for command execution times!"""
 
         guild_config = self.config.guild(interaction.guild)
@@ -435,10 +435,10 @@ class PasturesIntegration(commands.Cog):
                 # Defer the response - The ping can take a while!
 
 
-                ping_embed = await embed_helpers.ping_embed(server_name, ip, key)
+                mping_embed = await embed_helpers.mping_embed(server_name, ip, key)
 
                 # We got the response, send it!
-                await interaction.followup.send(embed=ping_embed)
+                await interaction.followup.send(embed=mping_embed)
 
                 return
 
